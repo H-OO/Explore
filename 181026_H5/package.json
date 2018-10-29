@@ -1,0 +1,13 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ts": "tsc --watch",
+    "scss": "sass ./src/scss/app.scss:./dist/app.css --watch",
+    "view": "live-server"
+  },
+  "author": "",
+  "license": "ISC"
+}
