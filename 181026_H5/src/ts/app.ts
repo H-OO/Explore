@@ -61,8 +61,11 @@ class V_player implements I_V {
     const video = this.video;
     video.addEventListener('canplay', () => {
       console.log('-> canplay');
+      alert('-> canplay');
       this.posterImg && this.posterImg.classList.remove('action'); // 隐藏封面
-      video.play(); // 开始播放
+      video.addEventListener('click', () => {
+        video.play(); // 开始播放
+      }, false);
     }, false)
   }
   poster() {
@@ -75,6 +78,7 @@ class V_player implements I_V {
       'loadeddata', // 第一帧加载完毕事件
       (e: Event) => {
         console.log('-> loadeddata');
+        alert('-> loadeddata');
         const video = e.target as HTMLVideoElement, // 获取视频元素
           vWidth = video.videoWidth, // 视频源宽
           vHeight = video.videoHeight, // 视频源高

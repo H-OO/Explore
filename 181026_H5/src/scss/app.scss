@@ -16,6 +16,7 @@
   }
   .poster_img {
     display: none;
+    z-index: 999999999;
     position: absolute;
     top: 0;
     left: 0;

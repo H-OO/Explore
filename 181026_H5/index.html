@@ -7,15 +7,29 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="./dist/app.css">
+  <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 </head>
 
 <body>
   <div class="wrap">
-    <video
+    <!-- <video
       id="video"
       crossorigin
       src="https://img.mumiweixin.com/v11.mp4"
       preload="auto"
+      controls="controls"
+    ></video> -->
+
+    <video
+      id="video"
+      crossorigin
+      src="https://img.mumiweixin.com/v11.mp4"
+      reload="auto"
+      webkit-playsinline="true"
+      playsinline="true"
+      x-webkit-airplay="allow"
+      x5-video-orientation="portrait"
+      style="object-fit: fill;"
     ></video>
   </div>
   <script src="./dist/app.js"></script>
