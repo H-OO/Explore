@@ -1,11 +1,12 @@
 /**
- * video 0.0.1
+ * video
  */
 //img.mumiweixin.com/v11.mp4
 //3gimg.qq.com/mig_market/activity/act/asset/wifi_steward_h5/video/miss_video_20180929_3.mp4
+console.log('-> App JS 0.0.3');
 const videoUrl = 'https://img.mumiweixin.com/v11.mp4';
 
-interface I_V {
+interface I_V_player {
   wrap: HTMLElement;
   video: HTMLVideoElement;
   init: () => void; // 初始化
@@ -20,7 +21,7 @@ interface I_V_arg {
   posterImg?: HTMLImageElement;
 }
 
-class V_player implements I_V {
+class V_player implements I_V_player {
   wrap: HTMLElement;
   video: HTMLVideoElement;
   posterImg: HTMLImageElement;
@@ -61,12 +62,11 @@ class V_player implements I_V {
     const video = this.video;
     video.addEventListener('canplay', () => {
       console.log('-> canplay');
-      alert('-> canplay');
-      this.posterImg && this.posterImg.classList.remove('action'); // 隐藏封面
-      video.addEventListener('click', () => {
-        video.play(); // 开始播放
-      }, false);
+      // this.posterImg && this.posterImg.classList.remove('action'); // 隐藏封面
     }, false)
+    document.body.addEventListener('click', () => {
+      video.play(); // 开始播放
+    }, false);
   }
   poster() {
     /**
@@ -78,7 +78,6 @@ class V_player implements I_V {
       'loadeddata', // 第一帧加载完毕事件
       (e: Event) => {
         console.log('-> loadeddata');
-        alert('-> loadeddata');
         const video = e.target as HTMLVideoElement, // 获取视频元素
           vWidth = video.videoWidth, // 视频源宽
           vHeight = video.videoHeight, // 视频源高
@@ -88,6 +87,7 @@ class V_player implements I_V {
         canvas.height = vHeight; // 画布默认高150
         context.drawImage(video, 0, 0, vWidth, vHeight); // 首帧绘制到画布
         const base64: string = canvas.toDataURL(); // 画布内容转base64
+        console.log(base64);
         const img: HTMLImageElement = new Image(); // 空图片
         this.posterImg = img;
         img.className = 'poster_img action'; // 封面样式
@@ -101,7 +101,7 @@ class V_player implements I_V {
   }
 }
 
-const v = new V_player({
+const v: I_V_player = new V_player({
   wrap: '.wrap',
   target: '#video'
 });

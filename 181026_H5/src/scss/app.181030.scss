@@ -4,13 +4,14 @@
 }
 
 .wrap {
+  overflow: hidden;
   position: relative;
   width: 100vw;
   height: 100vh;
   #video {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
     width: 100vw;
     height: 100vh;
   }
@@ -19,7 +20,7 @@
     z-index: 999999999;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -50%;
     width: 100vw;
     height: 100vh;
     &.action {
