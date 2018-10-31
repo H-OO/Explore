@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ts": "tsc --watch",
-    "scss": "sass ./src/scss/app.181030.scss:./dist/app.181030.css --watch",
+    "scss": "sass ./src/scss/app.scss:./dist/app.css --watch",
     "view": "live-server"
   },
   "author": "",

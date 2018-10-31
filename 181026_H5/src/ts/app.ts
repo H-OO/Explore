@@ -3,7 +3,7 @@
  */
 //img.mumiweixin.com/v11.mp4
 //3gimg.qq.com/mig_market/activity/act/asset/wifi_steward_h5/video/miss_video_20180929_3.mp4
-console.log('-> App JS 0.0.3');
+console.log('-> App JS 0.0.8');
 const videoUrl = 'https://img.mumiweixin.com/v11.mp4';
 
 interface I_V_player {
@@ -31,20 +31,21 @@ class V_player implements I_V_player {
     this.video = this.getEle(target) as HTMLVideoElement;
   }
   init() {
-    const video = this.video;
+    // const video = this.video;
+    // video.addEventListener('loadedmetadata', () => {
+    //   console.log('loadedmetadata'); // 1
+    // }, false);
     // video.addEventListener('loadeddata', () => {
     //   console.log('loadeddata'); // 2
     // }, false);
     // video.addEventListener('canplay', () => {
     //   console.log('canplay'); // 3
     // }, false);
-    // video.addEventListener('loadedmetadata', () => {
-    //   console.log('loadedmetadata'); // 1
-    // }, false);
     // video.addEventListener('ended', () => {
-    //   console.log('loadedmetadata'); // 1
+    //   console.log('end'); // end
     // }, false);
-    this.poster(); // 封面
+
+    // this.poster(); // 封面
     this.playHr(); // 播放
     // video.src = videoUrl;
   }
@@ -60,12 +61,9 @@ class V_player implements I_V_player {
      * iOS和Android都存在兼容问题
      */
     const video = this.video;
-    video.addEventListener('canplay', () => {
-      console.log('-> canplay');
-      // this.posterImg && this.posterImg.classList.remove('action'); // 隐藏封面
-    }, false)
     document.body.addEventListener('click', () => {
       video.play(); // 开始播放
+      this.posterImg && this.posterImg.classList.remove('action'); // 隐藏封面
     }, false);
   }
   poster() {
@@ -92,7 +90,7 @@ class V_player implements I_V_player {
         this.posterImg = img;
         img.className = 'poster_img action'; // 封面样式
         img.onload = () => {
-          this.wrap.appendChild(img); // 封面追加进视图
+          // this.wrap.lastElementChild.appendChild(img); // 封面追加进视图
         };
         img.src = base64;
       },
