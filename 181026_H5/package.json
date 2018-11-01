@@ -6,7 +6,7 @@
   "scripts": {
     "ts": "tsc --watch",
     "scss": "sass ./src/scss/app.scss:./dist/app.css --watch",
-    "view": "live-server"
+    "view": "live-server index.0.0.1.html"
   },
   "author": "",
   "license": "ISC"

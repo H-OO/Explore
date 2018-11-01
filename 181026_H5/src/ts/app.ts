@@ -3,7 +3,7 @@
  */
 //img.mumiweixin.com/v11.mp4
 //3gimg.qq.com/mig_market/activity/act/asset/wifi_steward_h5/video/miss_video_20180929_3.mp4
-console.log('-> App JS 0.0.8');
+console.log('-> App JS 0.0.1');
 const videoUrl = 'https://img.mumiweixin.com/v11.mp4';
 
 interface I_V_player {
@@ -104,3 +104,17 @@ const v: I_V_player = new V_player({
   target: '#video'
 });
 v.init();
+
+// wx.config({
+//   // 配置信息, 即使不正确也能使用 wx.ready
+//   debug: false,
+//   appId: 'gh_1a8c118653f8',
+//   timestamp: 1,
+//   nonceStr: '',
+//   signature: '',
+//   jsApiList: []
+// });
+
+// wx.ready(() => {
+//   console.log('ready...');
+// })
