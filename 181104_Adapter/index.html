@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vconsole.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body, html {
+      height: 100%;
+    }
+    .wrap {
+      height: 100%;
+      overflow: hidden;
+    }
+    img {
+      width: 375px;
+      height: 812px;
+      position: relative;
+      /* top: -72.5px; */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- <img class="x-img" src="./x.jpg" alt=""> -->
+  </div>
+  <script>
+    const bodyW = document.body.clientWidth;
+    const bodyH = document.body.clientHeight;
+    __('bodyW', bodyW);
+    __('bodyH', bodyH);
+
+    console.log(window.screen.width);
+    console.log(window.screen.height);
+    
+    
+    const wrap = document.querySelector('.wrap');
+    const xImg = new Image();
+    xImg.onload = () => {
+      __('xImgW', xImg.width);
+      __('xImgH', xImg.height);
+      wrap.appendChild(xImg);
+    };
+    xImg.src = './x.jpg';
+
+    function __(name, value) {
+      console.log(name + ' -> ' + value);
+    }
+  </script>
+</body>
+</html>
