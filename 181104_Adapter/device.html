@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="log"></div>
+  <script>
+    // 设备屏幕宽高
+    const screenWidth = window.screen.width;
+    const screenHeight = window.screen.height;
+    // 可视区宽高
+    const innerWidth = window.innerWidth;
+    const innerHeight = window.innerHeight;
+    
+    const log = document.querySelector('.log');
+    log.innerHTML = `
+      screenWidth -> ${screenWidth} <br>
+      screenHeight -> ${screenHeight} <br>
+      innerWidth -> ${innerWidth} <br>
+      innerHeight -> ${innerHeight}
+    `;
+  </script>
+</body>
+</html>
