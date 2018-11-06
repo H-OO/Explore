@@ -4,8 +4,10 @@ function Adapter() {}
 
 Adapter.prototype = {
   constructor: Adapter,
-  planW: 375, // 设计稿宽
-  planH: 812, // 设计稿高
+  // planW: 375, // 设计稿宽
+  // planH: 812, // 设计稿高
+  planW: 1215, // 设计稿宽
+  planH: 2631, // 设计稿高
   safeW: 375, // 安全区宽
   safeH: 603, // 安全区高
   innerWidth: 0, // 可视区宽
@@ -47,8 +49,11 @@ Adapter.prototype = {
     // const innerScale = innerHeight / innerWidth; // 可视区
     // 等比例换算
     const scale = innerWidth / planW;
+    console.log(scale);
+    
     const zoomPlanH = planH * scale; // 等比缩放后的设计稿高度
     // 未优化的偏移量
+    console.log(zoomPlanH);
     const moveStep = (zoomPlanH - innerHeight) / 2;
     console.log('moveStep -> ' + moveStep);
     this.wrap.firstElementChild.style.top = -moveStep +'px';
